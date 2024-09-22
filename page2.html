@@ -1,0 +1,838 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/site.webmanifest">
+<title>Page d'accueil</title>
+<link rel="stylesheet" href="styles.css"> <!-- Lien vers votre fichier CSS -->
+<style>
+
+/* Styles pour la balise main */
+main {
+    padding: 80px 20px 20px; /* Ajoute un padding-top pour compenser le header et nav fixes */
+}
+
+/* Styles pour les sections */
+section {
+    margin-bottom: 40px;
+    border-bottom: 2px solid #ccc;
+    padding-bottom: 20px;
+}
+
+/* Styles pour les titres (h2) */
+h2 {
+    color: #333;
+}
+
+/* Styles pour les paragraphes (p) */
+p {
+    font-size: 18px;
+    color: #555;
+}
+
+/* Styles pour les boutons */
+.buttons {
+    margin-top: 10px;
+}
+.button {
+    text-decoration: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    color: white;
+    font-weight: bold;
+    text-align: center;
+    margin-right: 10px;
+    display: inline-flex;
+    align-items: center;
+    gap: 10px; /* Ajoute un espacement entre le texte et l'icône */
+}
+.view-site {
+    background-color: #28a745;
+}
+.view-tuto {
+    background-color: #007bff;
+}
+.button:hover {
+    opacity: 0.8;
+}
+
+
+
+.logo {
+    font-size: 32px; /* Augmente la taille du texte */
+    font-weight: bold; /* Gras pour le rendre plus visible */
+    font-family: 'Poppins', sans-serif; /* Change la police pour une police plus moderne et attrayante */
+    letter-spacing: 2px; /* Espace entre les lettres pour donner un style élégant */
+    color: #ffcc00; /* Couleur vive et accrocheuse */
+    text-transform: uppercase; /* Convertit le texte en majuscules pour un effet percutant */
+    position: relative; /* Nécessaire pour l'animation */
+    cursor: pointer; /* Curiosité : ajout d'une interaction */
+    transition: color 0.3s ease-in-out; /* Ajoute une transition pour un effet fluide au survol */
+}
+
+.logo:hover {
+    color: #17a2b8; /* Change la couleur lors du survol pour attirer l'attention */
+}
+
+.logo::before {
+    content: ''; /* Crée un effet de soulignement animé */
+    position: absolute;
+    bottom: -5px; /* Positionné sous le texte */
+    left: 0;
+    width: 0;
+    height: 3px;
+    background-color: #17a2b8; /* Couleur du soulignement */
+    transition: width 0.3s ease-in-out; /* Animation fluide de l'élargissement */
+}
+
+.logo:hover::before {
+    width: 100%; /* Le soulignement s'élargit lors du survol */
+}
+
+.burger-menu ul li .description {
+    font-size: 16px; /* Augmente la taille de la description */
+    color: #ffcc00; /* Ajoute une couleur contrastante pour la description */
+    font-weight: bold; /* Ajoute du gras pour la mettre en évidence */
+    padding-left: 10px; /* Ajoute un léger retrait pour la démarquer des titres */
+}
+
+
+
+.burger-menu .contacts p {
+    font-size: 20px; /* Agrandit le texte "Contactez-nous" */
+    font-weight: bold; /* Texte en gras pour plus de visibilité */
+    color: #17a2b8; /* Accentue le texte avec une couleur vive */
+}
+
+.burger-menu .contacts a {
+    font-size: 18px; /* Augmente la taille de la police des liens de contact */
+    color: #17a2b8; /* Ajoute une couleur visible aux liens */
+    font-weight: bold;
+}
+
+footer p {
+    font-size: 20px; /* Augmente la taille du texte */
+    color: #ffffff; /* Blanc pour contraste sur le fond foncé */
+    font-weight: bold; /* Rend le texte plus visible */
+}
+
+footer a {
+    font-size: 18px; /* Taille légèrement augmentée pour les liens */
+    color: #17a2b8; /* Utilise une couleur plus vive pour les liens */
+}
+
+
+footer a {
+    color: inherit; /* Hérite de la couleur du texte parent (blanc dans ce cas) */
+    text-decoration: none; /* Enlève le soulignement */
+}
+
+.contact-icons {
+    position: fixed;
+    right: 0; /* Collé au bord droit de l'écran */
+    top: 50%; /* Centré verticalement */
+    transform: translateY(-50%); /* Ajuste pour centrer parfaitement */
+    display: flex;
+    flex-direction: column;
+    gap: 10px; /* Espacement entre les icônes */
+    z-index: 1000; /* Assure que les icônes sont au-dessus des autres éléments */
+    padding: 0; /* Supprime tout padding pour éviter le décalage */
+}
+
+.contact-icons a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #333; /* Couleur de fond pour les icônes */
+    border-radius: 50%; /* Forme circulaire */
+    padding: 5px; /* Ajustez selon la taille des icônes */
+    transition: background-color 0.3s;
+}
+
+.contact-icons a:hover {
+    background-color: #555; /* Changement de couleur au survol */
+}
+
+.contact-icons img {
+    height: 24px; /* Ajustez la taille des icônes selon vos besoins */
+    width: 24px; /* Assure que les icônes sont carrées */
+}
+
+section:first-of-type {
+    margin-top: 60px; /* Applique cette marge à la première section de chaque page */
+} 
+/* Ajoute cette partie au fichier CSS pour les styles actifs */
+nav ul li.active {
+    border-bottom: 4px solid #17a2b8; /* Bordure stylée pour l'élément actif */
+    background-color: #555; /* Optionnel : changement de couleur de fond pour l'élément actif */
+}
+/* Enlève le style des liens dans le menu */
+nav ul li a {
+    color: inherit; /* Prend la couleur du texte du parent */
+    text-decoration: none; /* Enlève le soulignement */
+}
+
+/* Assure que les liens s'affichent comme des éléments en ligne */
+nav ul li {
+    display: inline-block; /* Permet d'utiliser les propriétés de padding et de bordure */
+}
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 20px;
+    background-color: #333;
+    color: white;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000; /* Assure que le header est au-dessus des autres éléments */
+    box-sizing: border-box; /* Inclut padding et border dans la largeur totale */
+}
+.logo {
+    font-size: 24px;
+    display: flex;
+    align-items: center;
+}
+.logo img {
+    height: 40px; /* Ajuste la hauteur selon tes besoins */
+    margin-right: 10px; /* Espacement entre l'image et le texte */
+}
+.burger {
+    background: none;
+    border: none;
+    color: white;
+    font-size: 24px;
+    cursor: pointer;
+    padding: 0;
+    display: block; /* Affiché par défaut */
+}
+
+/* Styles pour le bouton "X" */
+.close {
+    background: none;
+    border: none;
+    color: white;
+    font-size: 24px;
+    cursor: pointer;
+    padding: 0;
+    display: none; /* Masqué par défaut */
+}
+
+/* Affiche le bouton burger seulement quand le menu est fermé */
+.burger-menu.show ~ #burgerButton {
+    display: none;
+}
+
+/* Affiche le bouton "X" seulement quand le menu est ouvert */
+.burger-menu.show ~ #closeButton {
+    display: block;
+}
+
+nav {
+    overflow-x: auto;
+    white-space: nowrap;
+    background-color: #444;
+    position: fixed;
+    top: 50px; /* Positionné juste en dessous du header */
+    left: 0;
+    width: 100%;
+    z-index: 999; /* Assure que le nav est sous le header mais au-dessus du contenu */
+    box-sizing: border-box; /* Assure que le padding est inclus dans la largeur */
+}
+nav ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+}
+nav ul li {
+    padding: 15px 20px;
+    color: white;
+    cursor: pointer;
+    flex: 1; /* Égalise la taille des items */
+    text-align: center;
+}
+nav ul li img {
+    height: 20px; /* Ajustez la taille des icônes selon vos besoins */
+    margin-right: 10px; /* Espacement entre l'icône et le texte */
+    vertical-align: middle; /* Aligne verticalement l'icône avec le texte */
+}
+nav ul li:hover {
+    background-color: #555;
+}
+main {
+    padding: 80px 20px 20px; /* Ajoute un padding-top pour compenser le header et nav fixes */
+}
+section {
+    margin-bottom: 40px;
+    border-bottom: 2px solid #ccc;
+    padding-bottom: 20px;
+}
+h2 {
+    color: #333;
+}
+p {
+    font-size: 18px;
+    color: #555;
+}
+ul {
+    margin-top: 10px;
+    padding-left: 20px;
+}
+li {
+    font-size: 16px;
+    color: #555;
+}
+.buttons {
+    margin-top: 10px;
+}
+.button {
+    text-decoration: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    color: white;
+    font-weight: bold;
+    text-align: center;
+    margin-right: 10px;
+    display: inline-flex;
+    align-items: center;
+    gap: 10px; /* Ajoute un espacement entre le texte et l'icône */
+}
+.view-content {
+    background-color: #17a2b8; /* Couleur pour le bouton "voir le contenu" */
+}
+.button:hover {
+    opacity: 0.8;
+}
+.scroll-button {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: #333;
+    color: white;
+    border: none;
+    padding: 15px;
+    border-radius: 50%;
+    cursor: pointer;
+    font-size: 24px;
+    font-weight: bold;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    transition: background-color 0.3s, transform 0.3s;
+}
+.scroll-button:hover {
+    background-color: #555;
+    transform: scale(1.1);
+}
+#scrollTopBtn {
+    display: none;
+}
+#scrollDownBtn {
+    display: none;
+}
+footer {
+    padding: 20px;
+    background-color: #333;
+    color: white;
+    text-align: center;
+}
+footer a img {
+    height: 20px; /* Ajustez la taille des icônes selon vos besoins */
+    margin-right: 5px; /* Espacement entre l'icône et le texte */
+    vertical-align: middle; /* Aligne verticalement l'icône avec le texte */
+}
+
+/* Styles pour le menu burger */
+.burger-menu {
+    display: none;
+    position: fixed;
+    top: 50px;
+    left: 0;
+    width: 100%;
+    background-color: #444;
+    color: white;
+    z-index: 1000;
+    box-sizing: border-box;
+    padding-top: 10px;
+    transition: transform 0.3s;
+    max-height: 80vh; /* Limite la hauteur du menu à 80% de la hauteur de la fenêtre */
+    overflow-y: auto; /* Permet le défilement vertical */
+}
+.burger-menu.show {
+    display: block;
+}
+.burger-menu ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+.burger-menu ul li {
+    padding: 15px;
+    border-bottom: 1px solid #555;
+    position: relative;
+}
+.burger-menu ul li img {
+    height: 20px; /* Ajustez la taille des icônes selon vos besoins */
+    margin-right: 10px; /* Espacement entre l'icône et le texte */
+    vertical-align: middle; /* Aligne verticalement l'icône avec le texte */
+}
+.burger-menu ul li a {
+    color: white;
+    text-decoration: none;
+    display: block;
+}
+.burger-menu ul li a:hover {
+    background-color: #555;
+}
+.burger-menu ul li .submenu-btn {
+    position: absolute;
+    right: 10px;
+    top: 15px;
+    font-size: 18px;
+    cursor: pointer;
+    color: white;
+}
+.burger-menu ul li ul {
+    display: none;
+    background-color: #555;
+}
+.burger-menu ul li.show-submenu > ul {
+    display: block;
+}
+.burger-menu .contacts {
+    padding: 10px 15px;
+    border-top: 1px solid #555;
+    text-align: center;
+}
+.burger-menu .contacts a {
+    color: white;
+    text-decoration: none;
+    display: block;
+    margin: 5px 0;
+}
+.burger-menu .contacts a img {
+    height: 20px; /* Ajustez la taille des icônes des contacts selon vos besoins */
+    margin-right: 10px; /* Espacement entre l'icône et le texte */
+    vertical-align: middle; /* Aligne verticalement l'icône avec le texte */
+}
+.burger-menu .contacts a:hover {
+    background-color: #555;
+}
+
+footer a {
+    color: inherit;
+    text-decoration: none;
+}
+
+#introduction {
+    padding: 20px;
+    background-color: #f8f9fa;
+    text-align: left;
+}
+
+#introduction h1 {
+    color: #007bff;
+    font-size: 1.8em;
+    margin-bottom: 10px;
+}
+
+#introduction p {
+    font-size: 1.1em;
+    color: #333;
+    margin: 10px 0;
+}
+
+#introduction .user-question {
+    font-size: 1.3em;
+    color: #555;
+    font-weight: bold;
+    margin: 20px 0;
+}
+
+#introduction .search-options {
+    margin-top: 20px;
+}
+
+#introduction .option {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+#introduction .option span {
+    font-size: 1em;
+    color: #333;
+}
+
+#introduction .button {
+    background-color: #007bff;
+    border: none;
+    border-radius: 5px;
+    padding: 8px 16px;
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    display: inline-flex;
+    align-items: center;
+}
+
+#introduction .payants {
+    color: #dc3545;
+    font-weight: bold;
+}
+
+#introduction .gratuits {
+    color: #28a745;
+    font-weight: bold;
+}
+
+#introduction .option:hover .button {
+    opacity: 0.8;
+}
+
+.button-red {
+    background-color: red;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-weight: bold;
+    text-align: center;
+}
+.view-channel {
+    background-color: #dc3545; /* Rouge */
+    width: 150px; /* Ajuste la largeur selon tes besoins */
+    text-align: center;
+    padding: 10px 20px;
+}
+
+#a-voir {
+    margin: 40px 0; /* Espace au-dessus et en-dessous de la section */
+    padding: 20px;
+    background-color: #f8f9fa; /* Couleur de fond similaire à la section d'introduction */
+}
+
+#a-voir h2 {
+    color: #007bff;
+    font-size: 1.8em;
+    margin-bottom: 10px;
+}
+
+#a-voir .search-options {
+    margin-top: 20px;
+}
+
+#a-voir .option {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+#a-voir .option span {
+    font-size: 1em;
+    color: #333;
+}
+
+#a-voir .button {
+    background-color: #007bff; /* Couleur des boutons similaire à celle de la section d'introduction */
+    border: none;
+    border-radius: 5px;
+    padding: 8px 16px;
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    display: inline-flex;
+    align-items: center;
+}
+
+.search-options table {
+    width: 100%;
+    border-collapse: collapse; /* Évite les bordures doubles entre les cellules */
+    margin: 0; /* Enlève les marges pour un alignement précis */
+}
+
+.search-options td {
+    padding: 10px;
+    vertical-align: middle; /* Aligne verticalement les éléments au centre de la cellule */
+}
+
+.search-options td:first-child {
+    text-align: left; /* Aligne le texte à gauche */
+}
+
+.search-options td:last-child {
+    text-align: right; /* Aligne les boutons à droite */
+}
+
+.search-options a.button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+.links-title {
+    display: flex;
+    align-items: center;
+    gap: 10px; /* Espace entre l'image et le texte */
+}
+
+.links-title img {
+    width: 80px; /* Taille de l'image, ajustez selon vos besoins */
+    height: auto; /* Maintient les proportions */
+}
+</style>
+</head>
+<body>
+<header>
+    <div class="logo">
+        <img src="logo.png" alt="logo"> <!-- Ajoute l'image du logo ici -->
+        À Votre Service
+    </div>
+    <button class="burger" id="burgerButton" onclick="toggleMenu()">☰</button>
+    <button class="close" id="closeButton" onclick="toggleMenu()">✖</button>
+</header>
+<nav>
+    <ul>
+        <li><a href="../index.html"><img src="svg/accueil.svg" alt="Icon 1">Accueil</a></li>
+        <li class="active"><a href="#"><img src="svg/reseausocial4.svg" alt="Icon 2">Médias numériques</a></li>
+        <li><img src="svg/streaming1.svg" alt="Icon 3">Streaming</li>
+        <li><img src="svg/Apprendre.svg" alt="Icon 4">Apprendre</li>
+        <li><img src="svg/bot.svg" alt="Icon 5">Ai</li>
+        <li><img src="svg/edit.svg" alt="Icon 6">Éditeurs</li>
+        <li><img src="svg/developpeur2.svg" alt="Icon 7">Développeurs</li>
+        <li><img src="svg/marchebusiness.svg" alt="Icon 8">E-Services</li>
+        <li><img src="svg/explorer.svg" alt="Icon 9">Explorer le monde</li>
+        <li><img src="svg/telechargement.svg" alt="Icon 10">Téléchargeurs</li>
+        <li><img src="svg/mobileetpc3.svg" alt="Icon 11">Mobiles et pc</li>
+        <li><img src="svg/decouvrir.svg" alt="Icon 12">Découvrir plus</li>
+    </ul>
+</nav>
+<div class="burger-menu" id="burgerMenu">
+    <ul>
+        <li>
+            <a href="#"><img src="svg/accueil.svg" alt="Icon 1">Accueil</a>
+            <p class="description">Description pour Menu 1</p>
+        </li>
+        <li>
+            <a href="#"><img src="svg/reseausocial4.svg" alt="Icon 2">Médias numériques</a>
+            <p class="description">Description pour Menu 2</p>
+        </li>
+        <li>
+            <a href="#"><img src="svg/streaming1.svg" alt="Icon 3">Streaming</a>
+            <p class="description">Description pour Menu 3</p>
+        </li>
+        <li>
+            <a href="#"><img src="svg/Apprendre.svg" alt="Icon 4">Apprendre</a>
+            <p class="description">Description pour Menu 4</p>
+        </li>
+        <li>
+            <a href="#"><img src="svg/bot.svg" alt="IA">IA</a>
+            <p class="description">Description pour Menu 5</p>
+        </li>
+        <li>
+            <a href="#"><img src="svg/edit.svg" alt="Icon 6">Éditeurs</a>
+            <p class="description">Description pour Menu 6</p>
+        </li>
+        <li>
+            <a href="#"><img src="svg/developpeur2.svg" alt="Icon 7">Développeurs</a>
+            <p class="description">Description pour Menu 7</p>
+        </li>
+        <li>
+            <a href="#"><img src="svg/marchebusiness.svg" alt="Icon 8">E-Services</a>
+            <p class="description">Description pour Menu 8</p>
+        </li>
+        <li>
+            <a href="#"><img src="svg/explorer.svg" alt="Icon 9">Explorer le monde</a>
+            <p class="description">Description pour Menu 9</p>
+        </li>
+        <li>
+            <a href="#"><img src="svg/telechargement.svg" alt="Icon 10">Téléchargeurs</a>
+            <p class="description">Description pour Menu 10</p>
+        </li>
+        <li>
+            <a href="#"><img src="svg/mobileetpc3.svg" alt="Icon 11">Mobiles et Pc</a>
+            <p class="description">Description pour Menu 11</p>
+        </li>
+        <li>
+            <a href="#"><img src="svg/decouvrir.svg" alt="Icon 12">Découvrir plus</a>
+            <p class="description">Description pour Menu 12</p>
+        </li>
+    </ul>
+    <div class="contacts">
+        <p>Contactez-nous :</p>
+        <a href="#"><img src="svg/gmailnoir.svg" alt="Gmail">Gmail</a>
+        <a href="#"><img src="svg/facebooknoir.svg" alt="Facebook">Facebook</a>
+        <a href="#"><img src="svg/whatsappnoir.svg" alt="WhatsApp">WhatsApp</a>
+        <a href="#"><img src="svg/telegramnoir.svg" alt="Telegram">Telegram</a>
+        <a href="#"><img src="svg/linkedinnoir.svg" alt="LinkedIn">LinkedIn</a>
+        <a href="#"><img src="svg/github.svg" alt="GitHub">GitHub</a>
+    </div>
+</div>
+<main>
+  <section id="introduction">
+    <h1>Bienvenue dans la section Médias numériques</h1>
+    <p>Nous avons ici des sites de téléchargement des films, des jeux, des séries, etc.</p>
+    <p><strong>Alors, que cherchez-vous ?</strong></p>
+    <p class="user-question">Je cherche :</p>
+    <div class="search-options">
+    <table>
+        <tbody>
+            <tr>
+                <td>Les sites de téléchargement des jeux <span class="payants">PAYANTS</span></td>
+                <td><a href="#lien1" class="button view-site">Voir</a></td>
+            </tr>
+            <tr>
+                <td>Les sites de téléchargement des films <span class="gratuits">GRATUITS</span></td>
+                <td><a href="#lien2" class="button view-site">Voir</a></td>
+            </tr>
+            <tr>
+                <td>Les sites de téléchargement des animés <span class="gratuits">GRATUITS</span></td>
+                <td><a href="#lien3" class="button view-site">Voir</a></td>
+            </tr>
+            <!-- Ajoutez d'autres options ici -->
+        </tbody>
+    </table>
+</div>
+</section>
+    <section id="lien1">
+      <h2>Site telchargement des jeux</h2>
+    <h3>Mortal Kombat</h3>
+    <p>Un jeu de combat emblématique avec des personnages légendaires et des coups fatals.</p>
+    <div class="buttons">
+        <a href="#" class="button view-site">Voir le site <span>&#10132;</span></a>
+        <a href="#" class="button view-tuto">Voir le tuto <span>&#10132;</span></a>
+    </div>
+
+    <h3>Call of Duty</h3>
+    <p>Un jeu de tir à la première personne immersif et réaliste, basé sur la guerre.</p>
+    <div class="buttons">
+        <a href="#" class="button view-site">Voir le site <span>&#10132;</span></a>
+        <a href="#" class="button view-tuto">Voir le tuto <span>&#10132;</span></a>
+    </div>
+</section>
+    <section id="lien2">
+      <h2>Site de télechargement des films</h2>
+    <h3>Mortal Kombat</h3>
+    <p>Un jeu de combat emblématique avec des personnages légendaires et des coups fatals.</p>
+    <div class="buttons">
+        <a href="#" class="button view-site">Voir le site <span>&#10132;</span></a>
+        <a href="#" class="button view-tuto">Voir le tuto <span>&#10132;</span></a>
+    </div>
+
+    <h3>Call of Duty</h3>
+    <p>Un jeu de tir à la première personne immersif et réaliste, basé sur la guerre.</p>
+    <div class="buttons">
+        <a href="#" class="button view-site">Voir le site <span>&#10132;</span></a>
+        <a href="#" class="button view-tuto">Voir le tuto <span>&#10132;</span></a>
+    </div>
+</section>
+    <section id="lien3">
+    <h2>Naruto</h2>
+    <p>Une histoire captivante d'un ninja qui rêve de devenir Hokage.</p>
+    <div class="buttons view-channel">
+        <a href="#" class="button" style="background-color: red;">Voir la chaîne <span>&#10132;</span></a>
+    </div>
+
+    <h2>One Piece</h2>
+    <p>Suivez Luffy et son équipage dans leur quête pour trouver le légendaire trésor One Piece.</p>
+    <div class="buttons view-channel">
+        <a href="#" class="button" style="background-color: red;">Voir la chaîne <span>&#10132;</span></a>
+    </div>
+</section>
+</main>
+<button id="scrollTopBtn" class="scroll-button">↑</button>
+<button id="scrollDownBtn" class="scroll-button">↓</button>
+<section id="a-voir">
+    <h2>À voir :</h2>
+    <div class="search-options">
+    <table>
+        <tbody>
+            <tr>
+                <td>Si le site n'est pas dans votre langue</td>
+                <td><a href="#" class="button view-tuto">Voir le tuto</a></td>
+            </tr>
+            <tr>
+                <td>Si vous ne parvenez pas à accéder à un site</td>
+                <td><a href="#" class="button view-tuto">Voir le tuto</a></td>
+            </tr>
+            <tr>
+                <td>Si vous souhaitez télécharger les contenus d'un site, précisément une vidéo depuis Internet pour regarder plus tard</td>
+                <td><a href="#" class="button view-tuto">Voir le tuto</a></td>
+            </tr>
+            <!-- Ajoutez d'autres options ici -->
+        </tbody>
+    </table>
+</div>
+    
+</section>
+<footer>
+    <p>Contactez-moi sur mes réseaux sociaux :</p>
+    <a href="#"><img src="svg/gmailnoir.svg" alt="Gmail">Gmail</a> | 
+    <a href="#"><img src="svg/facebooknoir.svg" alt="Facebook">Facebook</a> | 
+    <a href="#"><img src="svg/whatsappnoir.svg" alt="WhatsApp">WhatsApp</a> | 
+    <a href="#"><img src="svg/telegramnoir.svg" alt="Telegram">Telegram</a> | 
+    <a href="#"><img src="svg/linkedinnoir.svg" alt="Linkedin">LinkedIn</a> | 
+    <a href="#"><img src="svg/githubnoir.svg" alt="GitHub">Github</a>
+</footer>
+<script>
+// Script pour faire apparaître les boutons de défilement
+window.onscroll = function() {
+    const scrollTopBtn = document.getElementById('scrollTopBtn');
+    const scrollDownBtn = document.getElementById('scrollDownBtn');
+    if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+        scrollTopBtn.style.display = "block";
+        scrollDownBtn.style.display = "none";
+    } else {
+        scrollTopBtn.style.display = "none";
+        scrollDownBtn.style.display = "block";
+    }
+};
+document.getElementById('scrollTopBtn').onclick = function() {
+    window.scrollTo({top: 0, behavior: 'smooth'});
+};
+document.getElementById('scrollDownBtn').onclick = function() {
+    window.scrollTo({top: document.body.scrollHeight, behavior: 'smooth'});
+};
+
+function toggleMenu() {
+    const menu = document.getElementById('burgerMenu');
+    const burgerButton = document.getElementById('burgerButton');
+    const closeButton = document.getElementById('closeButton');
+    if (menu.classList.contains('show')) {
+        menu.classList.remove('show');
+        burgerButton.style.display = 'block';
+        closeButton.style.display = 'none';
+    } else {
+        menu.classList.add('show');
+        burgerButton.style.display = 'none';
+        closeButton.style.display = 'block';
+    }
+}
+
+document.querySelectorAll('.burger-menu .submenu-btn').forEach(button => {
+    button.addEventListener('click', function() {
+        const parentLi = this.closest('li');
+        parentLi.classList.toggle('show-submenu');
+    });
+});
+</script>
+<div class="contact-icons">
+    <a href="mailto:example@gmail.com" target="_blank"><img src="svg/gmailcolore.svg" alt="Gmail"></a>
+    <a href="https://www.facebook.com/yourprofile" target="_blank"><img src="svg/facebookcolore2.svg" alt="Facebook"></a>
+    <a href="https://wa.me/yourphonenumber" target="_blank"><img src="svg/whatsappcolore.svg" alt="WhatsApp"></a>
+    <a href="https://www.linkedin.com/in/yourprofile" target="_blank"><img src="svg/linkedincolore.svg" alt="LinkedIn"></a>
+    <a href="https://github.com/yourprofile" target="_blank"><img src="svg/github.svg" alt="GitHub"></a>
+</div>
+</body>
+</html>

@@ -1,0 +1,773 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="À Votre Service : Votre chercheur web dévoué, prêt à trouver ce que vous avez cherché pendant des heures ou des années. Sites, applications, logiciels introuvables ? Je les déniche pour vous, gratuitement et rapidement. Contactez-moi pour des découvertes uniques." />
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/site.webmanifest">
+<title>Page d'accueil</title>
+<link rel="stylesheet" href="styles.css"> <!-- Lien vers votre fichier CSS -->
+<style>
+/* Déclaration de la police */
+@font-face {
+    font-family: 'Helvetica Neue';
+    src: url('fonts/Helvetica Neue Medium Extended.otf') format('opentype'),
+         url('fonts/Helvetica Neue Medium Extended.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+/* Styles généraux */
+body {
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+}
+
+/* Autres styles */
+h1 {
+    font-weight: bold;
+}
+
+/* ... autres règles CSS ... */
+.logo {
+    font-size: 32px; /* Augmente la taille du texte */
+    font-weight: bold; /* Gras pour le rendre plus visible */
+    font-family: 'Poppins', sans-serif; /* Change la police pour une police plus moderne et attrayante */
+    letter-spacing: 2px; /* Espace entre les lettres pour donner un style élégant */
+    color: #ffcc00; /* Couleur vive et accrocheuse */
+    text-transform: uppercase; /* Convertit le texte en majuscules pour un effet percutant */
+    position: relative; /* Nécessaire pour l'animation */
+    cursor: pointer; /* Curiosité : ajout d'une interaction */
+    transition: color 0.3s ease-in-out; /* Ajoute une transition pour un effet fluide au survol */
+}
+
+.logo:hover {
+    color: #17a2b8; /* Change la couleur lors du survol pour attirer l'attention */
+}
+
+.logo::before {
+    content: ''; /* Crée un effet de soulignement animé */
+    position: absolute;
+    bottom: -5px; /* Positionné sous le texte */
+    left: 0;
+    width: 0;
+    height: 3px;
+    background-color: #17a2b8; /* Couleur du soulignement */
+    transition: width 0.3s ease-in-out; /* Animation fluide de l'élargissement */
+}
+
+.logo:hover::before {
+    width: 100%; /* Le soulignement s'élargit lors du survol */
+}
+
+.burger-menu ul li .description {
+    font-size: 16px; /* Augmente la taille de la description */
+    color: #ffcc00; /* Ajoute une couleur contrastante pour la description */
+    font-weight: bold; /* Ajoute du gras pour la mettre en évidence */
+    padding-left: 10px; /* Ajoute un léger retrait pour la démarquer des titres */
+}
+
+
+
+.burger-menu .contacts p {
+    font-size: 20px; /* Agrandit le texte "Contactez-nous" */
+    font-weight: bold; /* Texte en gras pour plus de visibilité */
+    color: #17a2b8; /* Accentue le texte avec une couleur vive */
+}
+
+.burger-menu .contacts a {
+    font-size: 18px; /* Augmente la taille de la police des liens de contact */
+    color: #17a2b8; /* Ajoute une couleur visible aux liens */
+    font-weight: bold;
+}
+
+footer p {
+    font-size: 20px; /* Augmente la taille du texte */
+    color: #ffffff; /* Blanc pour contraste sur le fond foncé */
+    font-weight: bold; /* Rend le texte plus visible */
+}
+
+footer a {
+    font-size: 18px; /* Taille légèrement augmentée pour les liens */
+    color: #17a2b8; /* Utilise une couleur plus vive pour les liens */
+}
+
+
+footer a {
+    color: inherit; /* Hérite de la couleur du texte parent (blanc dans ce cas) */
+    text-decoration: none; /* Enlève le soulignement */
+}
+
+.contact-icons {
+    position: fixed;
+    right: 0; /* Collé au bord droit de l'écran */
+    top: 50%; /* Centré verticalement */
+    transform: translateY(-50%); /* Ajuste pour centrer parfaitement */
+    display: flex;
+    flex-direction: column;
+    gap: 10px; /* Espacement entre les icônes */
+    z-index: 1000; /* Assure que les icônes sont au-dessus des autres éléments */
+    padding: 0; /* Supprime tout padding pour éviter le décalage */
+}
+
+.contact-icons a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #333; /* Couleur de fond pour les icônes */
+    border-radius: 50%; /* Forme circulaire */
+    padding: 5px; /* Ajustez selon la taille des icônes */
+    transition: background-color 0.3s;
+}
+
+.contact-icons a:hover {
+    background-color: #555; /* Changement de couleur au survol */
+}
+
+.contact-icons img {
+    height: 24px; /* Ajustez la taille des icônes selon vos besoins */
+    width: 24px; /* Assure que les icônes sont carrées */
+}
+
+section:first-of-type {
+    margin-top: 60px; /* Applique cette marge à la première section de chaque page */
+}
+/* Ajoute cette partie au fichier CSS pour les styles actifs */
+nav ul li.active {
+    border-bottom: 4px solid #17a2b8; /* Bordure stylée pour l'élément actif */
+    background-color: #555; /* Optionnel : changement de couleur de fond pour l'élément actif */
+}
+/* Enlève le style des liens dans le menu */
+nav ul li a {
+    color: inherit; /* Prend la couleur du texte du parent */
+    text-decoration: none; /* Enlève le soulignement */
+}
+
+/* Assure que les liens s'affichent comme des éléments en ligne */
+nav ul li {
+    display: inline-block; /* Permet d'utiliser les propriétés de padding et de bordure */
+}
+
+body {
+    
+    margin: 0;
+    padding: 0;
+}
+header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 20px;
+    background-color: #333;
+    color: white;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000; /* Assure que le header est au-dessus des autres éléments */
+    box-sizing: border-box; /* Inclut padding et border dans la largeur totale */
+}
+.logo {
+    font-size: 24px;
+    display: flex;
+    align-items: center;
+}
+.logo img {
+    height: 40px; /* Ajuste la hauteur selon tes besoins */
+    margin-right: 10px; /* Espacement entre l'image et le texte */
+}
+.burger {
+    background: none;
+    border: none;
+    color: white;
+    font-size: 24px;
+    cursor: pointer;
+    padding: 0;
+    display: block; /* Affiché par défaut */
+}
+
+/* Styles pour le bouton "X" */
+.close {
+    background: none;
+    border: none;
+    color: white;
+    font-size: 24px;
+    cursor: pointer;
+    padding: 0;
+    display: none; /* Masqué par défaut */
+}
+
+/* Affiche le bouton burger seulement quand le menu est fermé */
+.burger-menu.show ~ #burgerButton {
+    display: none;
+}
+
+/* Affiche le bouton "X" seulement quand le menu est ouvert */
+.burger-menu.show ~ #closeButton {
+    display: block;
+}
+
+nav {
+    overflow-x: auto;
+    white-space: nowrap;
+    background-color: #444;
+    position: fixed;
+    top: 50px; /* Positionné juste en dessous du header */
+    left: 0;
+    width: 100%;
+    z-index: 999; /* Assure que le nav est sous le header mais au-dessus du contenu */
+    box-sizing: border-box; /* Assure que le padding est inclus dans la largeur */
+}
+nav ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+}
+nav ul li {
+    padding: 15px 20px;
+    color: white;
+    cursor: pointer;
+    flex: 1; /* Égalise la taille des items */
+    text-align: center;
+}
+nav ul li img {
+    height: 20px; /* Ajustez la taille des icônes selon vos besoins */
+    margin-right: 10px; /* Espacement entre l'icône et le texte */
+    vertical-align: middle; /* Aligne verticalement l'icône avec le texte */
+}
+nav ul li:hover {
+    background-color: #555;
+}
+main {
+    padding: 80px 20px 20px; /* Ajoute un padding-top pour compenser le header et nav fixes */
+}
+section {
+    margin-bottom: 40px;
+    border-bottom: 2px solid #ccc;
+    padding-bottom: 20px;
+}
+h2 {
+    color: #333;
+}
+p {
+    font-size: 18px;
+    color: #555;
+}
+ul {
+    margin-top: 10px;
+    padding-left: 20px;
+}
+li {
+    font-size: 16px;
+    color: #555;
+}
+.buttons {
+    margin-top: 10px;
+}
+.button {
+    text-decoration: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    color: white;
+    font-weight: bold;
+    text-align: center;
+    margin-right: 10px;
+    display: inline-flex;
+    align-items: center;
+    gap: 10px; /* Ajoute un espacement entre le texte et l'icône */
+}
+.view-content {
+    background-color: #17a2b8; /* Couleur pour le bouton "voir le contenu" */
+}
+.button:hover {
+    opacity: 0.8;
+}
+.scroll-button {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: #333;
+    color: white;
+    border: none;
+    padding: 15px;
+    border-radius: 50%;
+    cursor: pointer;
+    font-size: 24px;
+    font-weight: bold;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    transition: background-color 0.3s, transform 0.3s;
+}
+.scroll-button:hover {
+    background-color: #555;
+    transform: scale(1.1);
+}
+#scrollTopBtn {
+    display: none;
+}
+#scrollDownBtn {
+    display: none;
+}
+footer {
+    padding: 20px;
+    background-color: #333;
+    color: white;
+    text-align: center;
+}
+footer a img {
+    height: 20px; /* Ajustez la taille des icônes selon vos besoins */
+    margin-right: 5px; /* Espacement entre l'icône et le texte */
+    vertical-align: middle; /* Aligne verticalement l'icône avec le texte */
+}
+
+/* Styles pour le menu burger */
+.burger-menu {
+    display: none;
+    position: fixed;
+    top: 50px;
+    left: 0;
+    width: 100%;
+    background-color: #444;
+    color: white;
+    z-index: 1000;
+    box-sizing: border-box;
+    padding-top: 10px;
+    transition: transform 0.3s;
+    max-height: 80vh; /* Limite la hauteur du menu à 80% de la hauteur de la fenêtre */
+    overflow-y: auto; /* Permet le défilement vertical */
+}
+.burger-menu.show {
+    display: block;
+}
+.burger-menu ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+.burger-menu ul li {
+    padding: 15px;
+    border-bottom: 1px solid #555;
+    position: relative;
+}
+.burger-menu ul li img {
+    height: 20px; /* Ajustez la taille des icônes selon vos besoins */
+    margin-right: 10px; /* Espacement entre l'icône et le texte */
+    vertical-align: middle; /* Aligne verticalement l'icône avec le texte */
+}
+.burger-menu ul li a {
+    color: white;
+    text-decoration: none;
+    display: block;
+}
+.burger-menu ul li a:hover {
+    background-color: #555;
+}
+.burger-menu ul li .submenu-btn {
+    position: absolute;
+    right: 10px;
+    top: 15px;
+    font-size: 18px;
+    cursor: pointer;
+    color: white;
+}
+.burger-menu ul li ul {
+    display: none;
+    background-color: #555;
+}
+.burger-menu ul li.show-submenu > ul {
+    display: block;
+}
+.burger-menu .contacts {
+    padding: 10px 15px;
+    border-top: 1px solid #555;
+    text-align: center;
+}
+.burger-menu .contacts a {
+    color: white;
+    text-decoration: none;
+    display: block;
+    margin: 5px 0;
+}
+.burger-menu .contacts a img {
+    height: 20px; /* Ajustez la taille des icônes des contacts selon vos besoins */
+    margin-right: 10px; /* Espacement entre l'icône et le texte */
+    vertical-align: middle; /* Aligne verticalement l'icône avec le texte */
+}
+.burger-menu .contacts a:hover {
+    background-color: #555;
+}
+
+footer a {
+    color: inherit;
+    text-decoration: none;
+}
+#introduction h1 {
+    color: #007bff;
+    font-size: 1.8em;
+    margin-bottom: 10px;
+}
+p {
+    line-height: 1.5;
+}
+
+body {
+    max-width: 100%; /* Pour s'assurer que le contenu ne dépasse pas l'écran */
+    white-space: normal; /* Permet les retours à la ligne naturels */
+    word-break: normal; /* Empêche la coupure des mots au milieu */
+    overflow-wrap: anywhere; /* Retour à la ligne si nécessaire sans casser les mots */
+}
+div, p, span, td {
+    max-width: 100%;
+    white-space: normal;
+    word-break: normal;
+    overflow-wrap: anywhere;
+}
+</style>
+</head>
+<body>
+<header>
+    <div class="logo">
+        <img src="logo.png" alt="Logo"> <!-- Ajoute l'image du logo ici -->
+        À Votre Service
+    </div>
+    <button class="burger" id="burgerButton" onclick="toggleMenu()">☰</button>
+    <button class="close" id="closeButton" onclick="toggleMenu()">✖</button>
+</header>
+<nav>
+    <ul>
+        <li id="menu1" class="active"><a href="#"><img src="svg/accueil.svg" alt="Icon 1">Accueil</a></li>
+        <li id="menu2"><a href="pg2.html"><img src="svg/reseausocial4.svg" alt="Icon 2">Médias sociaux</a></li>
+        <li id="menu3"><a href="pg3.html"><img src="svg/streaming1.svg" alt="Icon 3">Streaming VF et VOSTFR</a></li>
+        <li id="menu4"><a href="pg4.html"><img src="svg/Apprendre.svg" alt="Icon 4">Apprendre</a></li>
+        <li id="menu5"><a href="pg5.html"><img src="svg/bot.svg" alt="Icon 5">IA</a></li>
+        <li id="menu6"><a href="pg6.html"><img src="svg/edit.svg" alt="Icon 6">Éditer</a></li>
+        <li id="menu7"><a href="pg7.html"><img src="svg/developpeur2.svg" alt="Icon 7">Développer</a></li>
+        <li id="menu8"><a href="pg8.html"><img src="svg/marchebusiness.svg" alt="Icon 8">E-Services</a></li>
+        <li id="menu9"><a href="pg9.html"><img src="svg/explorer.svg" alt="Icon 9">Explorer le monde</a></li>
+        <li id="menu10"><a href="pg10.html"><img src="svg/telechargement.svg" alt="Icon 10">Télécharger</a></li>
+        <li id="menu11"><a href="pg11.html"><img src="svg/mobileetpc3.svg" alt="Icon 11">Mobiles et pc</a></li>
+        <li id="menu12"><a href="pg12.html"><img src="svg/decouvrir.svg" alt="Icon 12">Découvrir plus</a></li>
+        <li id="menu13"><a href="pg13.html"><img src="svg/moi2.svg" alt="Icon 13">À Propos</a></li>
+    </ul>
+</nav>
+<div class="burger-menu" id="burgerMenu">
+    <ul>
+        <li>
+            <a href="index.html"><img src="svg/accueil.svg" alt="Icon 1">Accueil</a>
+            <p class="description">Médias sociaux, Streaming, Apprendre, IA,Éditer, Développer, E-Services, ...</p>
+        </li>
+        <li>
+            <a href="pg2.html"><img src="svg/reseausocial4.svg" alt="Icon 2">Médias sociaux</a>
+            <p class="description">Réseaux sociaux polyvalents, Réseaux sociaux de partage des vidéos, de discussions avec des personnages IA, plateformes de libre expression, ... </p>
+        </li>
+        <li>
+            <a href="pg3.html"><img src="svg/streaming1.svg" alt="Icon 3">Streaming VF et VOSTFR</a>
+            <p class="description">Sites de streaming populaires, sites de streaming gratuits pour des films, des séries,des animes, des télénovelas en VF et en VOSTFR, ...</p>
+        </li>
+        <li>
+            <a href="pg4.html"><img src="svg/Apprendre.svg" alt="Icon 4">Apprendre</a>
+            <p class="description">Plateformes populaires pour tout apprendre, Sites gratuits pour tout apprendre, Sites pour apprendre la programmation, sites pour apprendre le Marketing digital, livres gratuits ...</p>
+        </li>
+        <li>
+            <a href="pg5.html"><img src="svg/bot.svg" alt="IA">IA</a>
+            <p class="description">Sites des IA populaires, Sites pour des IA de création des contenus, sites pour des IA gratuits, ...</p>
+        </li>
+        <li>
+            <a href="pg6.html"><img src="svg/edit.svg" alt="Icon 6">Éditer</a>
+            <p class="description">Sites de montages photo, Sites de montages vidéos, Sites pour tout créer avec l'IA, Sites pour créer des sites, Sites pour créer des applications, ...</p>
+        </li>
+        <li>
+            <a href="pg7.html"><img src="svg/developpeur2.svg" alt="Icon 7">Développer</a>
+            <p class="description">Sites pour débuter la programmation, Plateformes populaires des développeurs, sites d'outils des développeurs, chaînes youtube pour développeurs, ...</p>
+        </li>
+        <li>
+            <a href="pg8.html"><img src="svg/marchebusiness.svg" alt="Icon 8">E-Services</a>
+            <p class="description">Sites populaires de ventes en ligne, sites de freelance, Sites pour des transactions en ligne pour tous les pays,...</p>
+        </li>
+        <li>
+            <a href="pg9.html"><img src="svg/explorer.svg" alt="Icon 9">Explorer le monde</a>
+            <p class="description">Sites pour parcourir des lieux magnifiques partout dans le monde ,...</p>
+        </li>
+        <li>
+            <a href="pg10.html"><img src="svg/telechargement.svg" alt="Icon 10">Télécharger</a>
+            <p class="description">Sites pour télécharger des vidéos, sites pour télécharger des films, des séries, des animes, Sites gratuits pour télécharger des applications, des logiciels pc, des jeux android,pc,ppsspp,ps2,ps3,ps4,ps5,xbox,switch,..</p>
+        </li>
+        <li>
+            <a href="pg11.html"><img src="svg/mobileetpc3.svg" alt="Icon 11">Mobiles et Pc</a>
+            <p class="description">Sites utiles pour ton téléphone, sites utiles pour ton pc,....</p>
+        </li>
+        <li>
+            <a href="pg12.html"><img src="svg/decouvrir.svg" alt="Icon 12">Découvrir plus</a>
+            <p class="description">Découvrez d'autres sites incroyables ...</p>
+        </li>
+        <li>
+            <a href="pg13.html"><img src="svg/moi2.svg" alt="Icon 13">À Propos</a>
+            
+        </li>
+    </ul>
+    <div class="contacts">
+        <p>Contactez-nous :</p>
+        <a href="mailto:avotreservicejllik@gmail.com" target="_blank"><img src="svg/gmailnoir.svg" alt="Gmail">Gmail</a>
+        <a href="https://www.facebook.com/profile.php?id=61565834743434" target="_blank"><img src="svg/facebooknoir.svg" alt="Facebook">Facebook</a>
+        <a href="https://www.tiktok.com/@avotreservicejllik" target="_blank"><img src="svg/tiktoknoirs.svg" alt="Tiktok">Tiktok</a>
+        <a href="https://www.instagram.com/avotreservicejllik?igsh=MmRqNWV3NHVkdXY3" target="_blank"><img src="svg/instagramnoire.svg" alt="Instagram">Instagram</a>
+        <a href="https://tinyurl.com/44eydy5n" target="_blank"><img src="svg/twitterxnoires.svg" alt="x">X</a>
+        <a href="https://github.com/Avotreservicejllik" target="_blank"><img src="svg/github.svg" alt="GitHub">GitHub</a>
+    </div>
+</div>
+<main>
+   <section id="introduction">
+    <h1>Bienvenue, chers explorateurs du net. Je suis à votre service, prêt à vous guider gratuitement dans votre quête.</h1>
+    <p> Ici, votre voyage ne fait que commencer, et je suis à vos côtés pour vous ouvrir les portes des trésors cachés du web. Qu'il s'agisse des meilleurs sites de streaming, des réseaux sociaux fascinants, ou des astuces de téléchargement uniques, chaque visite ici vous promet une nouvelle découverte. Vous ne pourrez plus vous en passer, car à chaque clic, vous trouverez quelque chose d’incroyable. Revenez encore et encore, car ce lieu est le vôtre, et vous serez toujours surpris par ce que vous y trouverez. Laissez cette aventure devenir votre nouvelle addiction.</p>
+    <p>Sur ce site, chaque visite est une découverte. Vous y trouverez un monde de contenus soigneusement sélectionnés pour répondre à toutes vos envies. Explorez les meilleurs sites de streaming pour vos films et séries préférés, plongez dans les réseaux sociaux les plus tendances, et découvrez des méthodes uniques pour télécharger tout ce dont vous avez besoin. Vous cherchez à enrichir vos connaissances du web ? Nous avons aussi une sélection incroyable de sites qui vous feront voyager dans des univers fascinants. Ici, tout est conçu pour vous offrir ce qu’il y a de mieux, et chaque section vous réserve des surprises.
+      Explorez, profitez, et revenez pour plus de surprises !
+    </p>
+    <p>Comme sélections nous avous :</p>
+    
+    </section>
+    <section id="reseaux-sociaux">
+        <h2>Médias sociaux</h2>
+        <p>Les médias sociaux sont des plateformes en ligne permettant de créer, partager, et interagir avec du contenu et des personnes. Découvrez :</p>
+        <ul>
+            <li>Les sites réseaux sociaux polyvalents</li>
+            <li>Les plateformes de partage vidéos</li>
+            <li>Les plateformes libre d'expression</li>
+            <li>Les sites réseaux sociaux pour discuter avec des personnages IA</li>
+            <li>Les sites réseaux sociaux virtuels</li>
+            <li>Les sites de forums et d'échange communautaire</li>
+            <li>Les sites d'actualités</li>
+        </ul>
+        <div class="buttons">
+            <a href="pg2.html" class="button view-content">Voir le contenu <span>&#10132;</span></a>
+        </div>
+    </section>
+    <section id="streaming">
+        <h2>Streaming VF et VOSTFR</h2>
+        <p>Les streaming sont des services permettant de regarder des films, séries ou dessins animés en direct sur Internet. <strong>VF</strong> signifie que le contenu est en français, tandis que <strong>VOSTFR</strong> indique que le contenu est en langue originale avec des sous-titres en français. Découvrez :</p>
+        <ul>
+            <li>Les sites de streaming populaires</li>
+            <li>Les sites de streaming gratuits</li>
+            <li>Les sites de streaming pour films gratuits</li>
+            <li>Les sites de streaming pour séries gratuits</li>
+            <li>Les sites de streaming pour animés gratuits</li>
+            <li>Les sites de streaming novelas</li>
+            <li>Les sites de streaming des séries afro gratuits</li>
+            <li>Petits bonus (chaînes Telegram, youtube, Discord, ...)</li>
+        </ul>
+        <div class="buttons">
+            <a href="pg3.html" class="button view-content">Voir le contenu <span>&#10132;</span></a>
+        </div>
+    </section>
+    <section id="apprendre">
+        <h2>Apprendre</h2>
+        <p>Les sites d'apprentissage sont des plateformes en ligne où l'on peut suivre des cours, des tutoriels ou des formations pour acquérir de nouvelles compétences ou connaissances. Découvrez :</p>
+        <ul>
+            <li>Les plateformes populaires pour tout apprendre </li>
+            <li>Les sites pour tout apprendre gratuitement</li>
+            <li>Les sites pour apprendre avec certification gratuit</li>
+            <li>Les sites gratuits pour apprendre une nouvelle langue</li>
+            <li>Les sites gratuits pour lire des livres</li>
+            <li>Les sites pour apprendre la programmation</li>
+            <li>Les sites pour apprendre le Marketing digital</li>
+            <li>Les sites IA pour tout apprenants</li>
+            <li>Les sites avec des outils incroyables pour les apprenants</li>
+        </ul>
+        <div class="buttons">
+            <a href="pg4.html" class="button view-content">Voir le contenu <span>&#10132;</span></a>
+        </div>
+    </section>
+    <section id="ai">
+        <h2>IA</h2>
+        <p>Les sites d'IA proposent des outils en ligne qui utilisent l'intelligence artificielle pour accomplir des tâches comme répondre aux questions, analyser des données, ou automatiser des tâches répétitives. Ils rendent le travail plus facile et plus rapide, vous aidant à être plus productif et à apprendre plus efficacement. Découvrez :</p>
+        <ul>
+            <li>Les sites d'IA populaires</li>
+            <li>Les sites d'IA totalement gratuites</li>
+            <li>Les IA pour étuditeurs n'importe quoi(photos, vidéos, animations, applications, ...)</li>
+            <li>Les sites IA pour créateurs de contenus (TikTok, YouTube, ...)</li>
+            <li>Les sites d'IA pour faire du business</li>
+        </ul>
+        <div class="buttons">
+            <a href="pg5.html" class="button view-content">Voir le contenu <span>&#10132;</span></a>
+        </div>
+    </section>
+    <section id="editer">
+        <h2>Éditer</h2>
+        <p>Les sites de création en ligne permettent d'éditer des images, des vidéos, de créer des animations, des sites web, et des applications sans avoir besoin de coder. Ils offrent des outils simples et accessibles pour réaliser des projets créatifs, comme retoucher des photos, monter des vidéos, ou concevoir des logos. Ces plateformes rendent la création plus facile, amusante et accessible à tous, même sans compétences techniques. Découvrez :</p>
+        <ul>
+            <li>Les sites pour éditer les images</li>
+            <li>Les sites pour l'édition des videos</li>
+            <li>Les sites pour l'édition de texte</li>
+            <li>Les sites IA pour l'édition des photos, vidéos, texte, sites, applications, ...</li>
+            <li>Les sites pour la création des sites, des applications  et Blog sans coder</li>
+            <li>Les sites pour la création des Logo</li>
+            <li>Les autres sites incroyables les éditions</li>
+        </ul>
+        <div class="buttons">
+            <a href="pg6.html" class="button view-content">Voir le contenu <span>&#10132;</span></a>
+        </div>
+    </section>
+    <section id="developper">
+        <h2>Développer</h2>
+        <p>Les sites pour développeurs offrent des outils, des ressources et des plateformes pour coder, tester et déployer des applications. Ils permettent d'apprendre de nouveaux langages de programmation, de collaborer sur des projets, et d'accéder à des bibliothèques de code. Ces sites facilitent la gestion des projets de développement et fournissent des environnements de travail pratiques pour créer des logiciels, des sites web et des applications. Découvrez :</p>
+        <ul>
+            <li>Les sites pour apprendre à coder </li>
+            <li>Les plateformes des développeurs</li>
+            <li>Les sites pour des outils des développement</li>
+            <li>Les sites IA pour développeurs</li>
+            <li>Les sites populaires pour l'hébergement</li>
+            <li>Les sites pour l'hébergement gratuit </li>
+            <li>Les sites utiles pour développeurs freelance</li>
+            <li>Les chaines youtube pour apprendre à programmer</li>
+            
+        </ul>
+        <div class="buttons">
+            <a href="pg7.html" class="button view-content">Voir le contenu <span>&#10132;</span></a>
+        </div>
+    </section>
+    <section id="marketplace">
+        <h2>E-Services</h2>
+        <p>Les E-services désignent les services accessibles en ligne via Internet, permettant d'effectuer diverses opérations telles que les paiements électroniques, les achats en ligne (e-commerce), les transactions financières, et le freelance en ligne (travail indépendant en ligne). Ils facilitent également les recherches d'emploi, d'investissement et de financement, tout en permettant de gérer des tâches et des paiements sans se déplacer physiquement. Découvrez :</p>
+        <ul>
+            <li>Les sites populaires de ventes</li>
+            <li>Les sites de ventes de diverses régions</li>
+            <li>Les sites pour des paiement en ligne</li>
+            <li>Les sites de freelance</li>
+            <li>Les plateformes de mise en relation professionnel </li>
+            <li>Les sites pour les chercheurs d'emploi et les recruteurs</li>
+        </ul>
+        <div class="buttons">
+            <a href="pg8.html" class="button view-content">Voir le contenu <span>&#10132;</span></a>
+        </div>
+    </section>
+    <section id="explorer">
+        <h2>Explorer le monde</h2>
+        <p>Les sites de visites immersives vous transportent dans des lieux réels avec une expérience interactive unique. Imaginez marcher dans les rues animées, conduire une voiture, faire du vélo ou même voir des images en direct des caméras publiques. Ces plateformes vous permettent de découvrir des villes comme Paris ou Londres en immersion totale, vous donnant l'impression d'y être vraiment. Une façon passionnante de voyager et d'explorer le monde sans quitter votre maison ! Découvrez :</p>
+        <ul>
+            <li>Les sites pour explorer divers endroits dans le monde</li>
+            
+        </ul>
+        <div class="buttons">
+            <a href="pg9.html" class="button view-content">Voir le contenu <span>&#10132;</span></a>
+        </div>
+    </section>
+    <section id="telecharger">
+        <h2>Télécharger</h2>
+        <p>Les sites de téléchargement vous permettent d'accéder à une vaste gamme de contenus numériques. Vous pouvez y trouver des applications pour tous les types d'appareils, des jeux vidéo pour PC, Android, PPSSPP, PS3,PS4,XBOX, SWITCH.., ainsi que des films, des séries, et des animés. Ces plateformes offrent une multitude de choix pour télécharger et profiter de vos médias préférés, qu'il s'agisse de logiciels, de jeux, ou de divertissements visuels. Que vous cherchiez à installer de nouveaux outils ou à explorer des titres de divertissement, ces sites sont votre destination pour obtenir tout ce dont vous avez besoin en un seul endroit. Découvrez :</p>
+        <ul>
+            <li>Les sites de téléchargement gratuits des films, séries, animes, applications mobiles, logiciels pc, jeux android, PS2,PS3,PS4,PS5,XBOX,SWITCH ...</li>
+            <li>Les sites de téléchargement des vidéos(youtube,tiktok,facebook,...) </li>
+            <li>Les sites sites populaires de téléchargement des applications</li>
+            <li>Les sites pour télécharger n'importe quelle applications gratuitements</li>
+            <li>Petits bonus(applications de téléchargement)</li>
+            
+        </ul>
+        <div class="buttons">
+            <a href="pg10.html" class="button view-content">Voir le contenu <span>&#10132;</span></a>
+        </div>
+    </section>
+    <section id="mobile-pc">
+        <h2>Mobiles et pc</h2>
+        <p>Les sites dédiés aux astuces pour votre téléphone ou PC offrent des conseils pratiques et des solutions pour tirer le meilleur parti de vos appareils. Vous y trouverez des astuces pour optimiser les performances, résoudre des problèmes courants, découvrir des fonctionnalités cachées, et améliorer votre utilisation quotidienne. Ces sites vous aident à rendre vos appareils plus efficaces et à mieux les exploiter avec des conseils faciles à suivre. Découvrez :</p>
+        <ul>
+            <li>Les sites utiles pour votre téléphone ou pc</li>
+            
+        </ul>
+        <div class="buttons">
+            <a href="pg11.html" class="button view-content">Voir le contenu <span>&#10132;</span></a>
+        </div>
+    </section>
+    <section id="decouvrer">
+        <h2>Découvrir plus</h2>
+        <p>Après avoir exploré les sites que vous avez aimés, il est temps de découvrir encore plus ! Chaque site offre une richesse de contenu et des fonctionnalités uniques qui peuvent enrichir votre expérience numérique. Que vous cherchiez à optimiser votre téléphone, à trouver des outils innovants pour votre PC, ou à explorer des astuces fascinantes, il y a toujours quelque chose de nouveau à apprendre et à découvrir. Plongez plus profondément pour dénicher des conseils précieux, des applications utiles, et des ressources excitantes qui peuvent transformer votre façon de travailler et de vous divertir. Ne vous arrêtez pas là – l'aventure continue !</p>
+        
+        <div class="buttons">
+            <a href="pg12.html" class="button view-content">Voir le contenu <span>&#10132;</span></a>
+        </div>
+    </section>
+</main>
+<button id="scrollTopBtn" class="scroll-button">↑</button>
+<button id="scrollDownBtn" class="scroll-button">↓</button>
+<footer>
+    <p>Contactez-moi sur mes réseaux sociaux :</p>
+    <a href="mailto:avotreservicejllik@gmail.com" target="_blank"><img src="svg/gmailnoirs.svg" alt="Gmail">Gmail</a> | 
+    <a href="https://www.facebook.com/profile.php?id=61565834743434" target="_blank"><img src="svg/facebooknoir.svg" alt="Facebook">Facebook</a> | 
+    <a href="https://www.tiktok.com/@avotreservicejllik" target="_blank"><img src="svg/tiktoknoirs.svg" alt="Tiktok">Tiktok</a> | 
+    <a href="https://www.instagram.com/avotreservicejllik?igsh=MmRqNWV3NHVkdXY3"><img src="svg/instagramnoire.svg" alt="Instagram">Instagram</a> | 
+    <a href="https://tinyurl.com/44eydy5n"><img src="svg/twitterxnoires.svg" alt="X">X</a> | 
+    <a href="https://github.com/Avotreservicejllik"><img src="svg/githubnoir.svg" alt="GitHub">Github</a>
+</footer>
+<script>
+// Script pour faire apparaître les boutons de défilement
+window.onscroll = function() {
+    const scrollTopBtn = document.getElementById('scrollTopBtn');
+    const scrollDownBtn = document.getElementById('scrollDownBtn');
+    if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+        scrollTopBtn.style.display = "block";
+        scrollDownBtn.style.display = "none";
+    } else {
+        scrollTopBtn.style.display = "none";
+        scrollDownBtn.style.display = "block";
+    }
+};
+document.getElementById('scrollTopBtn').onclick = function() {
+    window.scrollTo({top: 0, behavior: 'smooth'});
+};
+document.getElementById('scrollDownBtn').onclick = function() {
+    window.scrollTo({top: document.body.scrollHeight, behavior: 'smooth'});
+};
+
+function toggleMenu() {
+    const menu = document.getElementById('burgerMenu');
+    const burgerButton = document.getElementById('burgerButton');
+    const closeButton = document.getElementById('closeButton');
+    if (menu.classList.contains('show')) {
+        menu.classList.remove('show');
+        burgerButton.style.display = 'block';
+        closeButton.style.display = 'none';
+    } else {
+        menu.classList.add('show');
+        burgerButton.style.display = 'none';
+        closeButton.style.display = 'block';
+    }
+}
+
+document.querySelectorAll('.burger-menu .submenu-btn').forEach(button => {
+    button.addEventListener('click', function() {
+        const parentLi = this.closest('li');
+        parentLi.classList.toggle('show-submenu');
+    });
+});
+
+
+// Fonction pour faire défiler le menu vers l'élément actif
+function scrollToActiveMenu() {
+    const activeMenu = document.querySelector('nav ul li.active');
+    if (activeMenu) {
+        // Assurez-vous que l'élément actif est visible dans la barre de défilement
+        activeMenu.scrollIntoView({ behavior: 'smooth', inline: 'start' });
+    }
+}
+
+// Appeler la fonction lors du chargement de la page
+window.onload = scrollToActiveMenu;
+
+// Vous pouvez également ajouter un événement de clic pour faire défiler le menu
+document.querySelectorAll('nav ul li').forEach(item => {
+    item.addEventListener('click', () => {
+        document.querySelectorAll('nav ul li').forEach(li => li.classList.remove('active'));
+        item.classList.add('active');
+        scrollToActiveMenu();
+    });
+});
+</script>
+<div class="contact-icons">
+    <a href="mailto:avotreservicejllik@gmail.com" target="_blank"><img src="svg/gmailcolore.svg" alt="Gmail"></a>
+    <a href="https://www.facebook.com/profile.php?id=61565834743434" target="_blank"><img src="svg/facebookcolore2.svg" alt="Facebook"></a>
+    <a href="https://www.tiktok.com/@avotreservicejllik" target="_blank"><img src="svg/tiktokcolore.svg" alt="Tiktok"></a>
+    <a href="https://www.instagram.com/avotreservicejllik?igsh=MmRqNWV3NHVkdXY3" target="_blank"><img src="svg/instagramcolore.svg" alt="Instagram"></a>
+    <a href="https://github.com/Avotreservicejllik" target="_blank"><img src="svg/github.svg" alt="GitHub"></a>
+</div>
+</body>
+</html>
